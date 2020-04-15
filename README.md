@@ -8,4 +8,6 @@
 - Update 14 April 2020
 
 ### When there is an update 10.15.5 well you just have to modify the main script to download install macOS Catalina 10.15
-- Change --full-installer-version 10.15.4 for --full-installer-version 10.15.5
+- Change 
+--full-installer-version 10.15.4 
+for --full-installer-version 10.15.5
