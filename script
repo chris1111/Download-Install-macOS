@@ -1,0 +1,78 @@
+#!/bin/bash
+# Download Install macOS
+# Copyright (c) 2020, chris1111, All Right Reserved.
+
+# Vars
+apptitle="Download Install macOS"
+version="1.0"
+# Set Icon directory and file 
+iconfile="/System/Library/CoreServices/Software Update.app/Contents/Resources/SoftwareUpdate.icns"
+
+
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo $current_date_time;
+echo "Starting Download Install macOS"
+
+# Select Install macOS
+response=$(osascript -e 'tell app "System Events" to display dialog "Make your choice to download Install macOS from the Apple server\n\n" buttons {"Install macOS Catalina","Install macOS Mojave", "Install macOS High Sierra"} default button 1 with title "'"$apptitle"' '"$version"'" with icon POSIX file "'"$iconfile"'"  ')
+
+action=$(echo $response | cut -d ':' -f2)
+
+# Install macOS Catalina
+if [ "$action" == "Install macOS Catalina" ] ; then
+    echo "Install macOS Catalina.app ➤ /Applications"
+    echo "********************************************** "
+    echo "Wait! . . ."
+    softwareupdate --fetch-full-installer --full-installer-version 10.15.4
+      echo "  "
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo $current_date_time;
+echo "********************************************** " 
+echo "Download complete! "
+echo "********************************************** " 
+echo "  "
+# script Notifications
+osascript -e 'display notification "Successfully completed" with title "Install macOS Catalina"  sound name "default"'
+    exit 0
+  fi
+ 
+# Install macOS Mojave
+if [ "$action" == "Install macOS Mojave" ] ; then
+    echo "Install macOS Mojave.app ➤ /Applications"
+    echo "********************************************** "
+    echo "Wait! . . ."
+    softwareupdate --fetch-full-installer --full-installer-version 10.14.6
+    echo "  "
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo $current_date_time;
+echo "********************************************** " 
+echo "Download complete! "
+echo "********************************************** " 
+echo "  "
+# script Notifications
+osascript -e 'display notification "Successfully completed" with title "Install macOS Mojave"  sound name "default"'
+    exit 0
+  fi
+
+# Install macOS High Sierra
+if [ "$action" == "Install macOS High Sierra" ] ; then
+    echo "Install macOS High Sierra.app ➤ /Applications"
+    echo "********************************************** "
+    echo "Wait! . . ."
+    softwareupdate --fetch-full-installer --full-installer-version 10.13.6
+    sleep 2
+echo "  "
+current_date_time="`date "+%Y-%m-%d %H:%M:%S"`";
+echo $current_date_time;
+echo "********************************************** " 
+echo "Download complete! "
+echo "********************************************** " 
+echo "  "
+# script Notifications
+osascript -e 'display notification "Successfully completed" with title "Install macOS High Sierra"  sound name "default"'
+    exit 0
+  fi
+
+
+
+
