@@ -1,5 +1,5 @@
 ## Download Install macOS
-
+Not working on Big Sur 11
 Created from [Platypus 5.3](https://github.com/sveinbjornt/Platypus)
 
 Credit: Apple
